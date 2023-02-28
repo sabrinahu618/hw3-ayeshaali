@@ -4,8 +4,8 @@
 		"date": "2022-10-29",
 		"lines": [
 			{
-				"payer": "Neo",
-				"payee": "Trinity",
+				"payer": "neo",
+				"payee": "trin",
 				"amount": 1000,
 				"currency": "USD"
 			}
@@ -16,8 +16,8 @@
 		"date": "2023-11-29",
 		"lines": [
 			{
-				"payer": "Joint",
-				"payee": "Trinity",
+				"payer": "joint",
+				"payee": "trin",
 				"amount": 1000,
 				"currency": "USD"
 			}
@@ -28,8 +28,8 @@
 		"date": "2023-12-29",
 		"lines": [
 			{
-				"payer": "Trinity",
-				"payee": "Joint",
+				"payer": "trin",
+				"payee": "joint",
 				"amount": 2283,
 				"currency": "USD"
 			}
