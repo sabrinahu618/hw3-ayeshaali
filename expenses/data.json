@@ -3,8 +3,21 @@
 		"title": "Rent, Oct 2023",
 		"date": "2022-10-29",
 		"amount": {
-			"trinTrin": 0,
-			"trinNeo": 0
+			"trin": {
+				"trin": 200,
+				"neo": 200,
+				"joint": 0
+			},
+			"neo": {
+				"trin": 0,
+				"neo": 0,
+				"joint": 0
+			},
+			"joint": {
+				"trin": 0,
+				"neo": 0,
+				"joint": 0
+			}
 		}
 	}
 ]
