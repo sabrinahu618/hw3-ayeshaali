@@ -6,7 +6,8 @@
 			{
 				"payer": "Neo",
 				"payee": "Trinity",
-				"amount": 1000
+				"amount": 1000,
+				"currency": "USD"
 			}
 		]
 	},
@@ -17,7 +18,8 @@
 			{
 				"payer": "Joint",
 				"payee": "Trinity",
-				"amount": 1000
+				"amount": 1000,
+				"currency": "USD"
 			}
 		]
 	},
@@ -28,7 +30,8 @@
 			{
 				"payer": "Trinity",
 				"payee": "Joint",
-				"amount": 2283
+				"amount": 2283,
+				"currency": "USD"
 			}
 		]
 	}
