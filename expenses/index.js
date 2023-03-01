@@ -1,8 +1,19 @@
 import { createApp } from "https://mavue.mavo.io/mavue.js";
+import MaData from "https://mavue.mavo.io/ma-data/ma-data.js";
 
 globalThis.app = createApp({
 	data: {
-		expenses: []
+		expenses: [],
+		addItem: {
+			title: "",
+			date: "",
+			lines: [{
+				amount: "",
+				payee: "",
+				payer: "",
+				currency: "USD"
+			}]
+		}
 	},
 
 	methods: {
@@ -24,23 +35,94 @@ globalThis.app = createApp({
 			};
 
 			return amount * rates[to] / rates[from];
-		}
+		},
+
+		addExpense() {
+			this.expenses.push(this.addItem);
+			this.addItem = {
+				title: "",
+				date: "",
+				lines: [{
+					amount: "",
+					payee: "",
+					payer: "",
+					currence: "USD"
+				}]
+			}
+		},
+
+		addLine() {
+			this.addItem.lines.push({
+				amount: "",
+				payee: "",
+				payer: ""
+			});
+		},
+
+		deleteLine(i) {
+			this.addItem.lines.splice(i, 1);
+		},
+
+
+		deleteItem(i) {
+			this.expenses.splice(i, 1);
+		},
+
+		async login (o) {
+			this.inProgress = "Logging in...";
+			await this.backend.login(o);
+
+			if (this.dataLoaded === false) {
+				await this.load();
+			}
+
+			this.inProgress = "";
+			return this.backend.user;
+		},
 	},
 
 	computed: {
-		total_balance () {
-			let total = 0;
+		sortedExpenses() {
+			return this.expenses.sort((a, b) => new Date(b.date) - new Date(a.date));
+		},
 
-			for (let expense of this.expenses) {
-				let trinity_paid = expense.trinity_paid ?? 0;
-				let neo_paid = expense.neo_paid ?? 0;
-				let trinity_paid_for_neo = expense.trinity_paid_for_neo ?? 0;
-				let neo_paid_for_trinity = expense.neo_paid_for_trinity ?? 0;
-
-				total += (trinity_paid - neo_paid)/2 + trinity_paid_for_neo - neo_paid_for_trinity;
+		balances () {
+			let balance = {
+				trin: {
+					trin: 0,
+					neo: 0,
+					joint: 0
+				},
+				neo: {
+					trin: 0,
+					neo: 0,
+					joint: 0
+				},
+				joint: {
+					trin: 0,
+					neo: 0,
+					joint: 0
+				},
 			}
+			for (let expense of this.expenses) {
+				for (let line of expense.lines) {
+					balance[line.payer][line.payee] += this.currencyConvert(line.currency, "USD", line.amount)
+				}
+			}
+			let total = 0;
+			const trinity_paid = balance.trin.joint + balance.joint.neo;
+			const neo_paid = balance.neo.joint + balance.joint.trin;
+			const trinity_paid_for_neo = balance.trin.neo;
+			const neo_paid_for_trinity = balance.neo.trin;
 
-			return total;
-		}
+			total += (trinity_paid - neo_paid)/2 + trinity_paid_for_neo - neo_paid_for_trinity;
+			balance.total = total;
+
+			return balance;
+		},
+	},
+
+	components: {
+		"ma-data": MaData
 	}
 }, "#app");

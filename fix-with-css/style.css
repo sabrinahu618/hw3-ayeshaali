@@ -1,0 +1,149 @@
+document.body.insertAdjacentHTML("beforeend", `<style>
+
+body {
+    font-family: Helvetica Neue, system-ui, sans-serif;
+}
+
+table.calendar tr {
+    vertical-align: center;
+    height: 16em;
+}
+
+
+td.mod1 > .date, 
+td.mod2 > .date, 
+td.mod3 > .date, 
+td.mod4 > .date, 
+td.mod5 > .date {
+    float:left; 
+    display:inline;
+    margin-bottom: 10px;
+}
+
+td .date {
+    font-family: Helvetica;
+    font-weight: 300;
+    background-color: edeceb;
+    padding: 5px;
+    padding-right: 6px;
+    border-bottom-style: solid;
+    border-right-style: solid;
+    display: block;
+    width: 10%;
+    text-align: center;
+    margin-right: 10px;
+}
+
+td > b {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.mod1 > a:first-of-type, 
+.mod2 > a:first-of-type, 
+.mod3 > a:first-of-type, 
+.mod4 > a:first-of-type, 
+.mod5 > a:first-of-type {
+    font-weight: bolder;
+    display: block;
+    text-decoration: none;
+    padding: 8px;
+    text-align: center;
+    color: black;
+    border-style: solid;
+    border-color: #333333;
+    border-radius: 20px;
+    margin: 30px 10px 10px 10px;
+}
+
+.mod1 > a:first-of-type:hover {
+    background-color: #e29b77;
+}
+
+.mod2 > a:first-of-type:hover { 
+    background-color: #e3ca8f;
+}
+
+.mod3 > a:first-of-type:hover { 
+    background-color: #7ed3a4;
+}
+
+.mod4 > a:first-of-type:hover { 
+    background-color: #80a6df;
+}
+
+.mod5 > a:first-of-type:hover { 
+    background-color: #ae8ee3;
+}
+
+table a:visited {
+    color: blue;
+}
+
+.assignment {
+    color: black;
+}
+
+.mod1  a:nth-of-type(2), 
+.mod2 a:nth-of-type(2), 
+.mod3 a:nth-of-type(2), 
+.mod4 a:nth-of-type(2), 
+.mod5 a:nth-of-type(2) { 
+    font-weight: bolder;
+    color: black;
+}
+
+.mod1  a:nth-of-type(3), 
+.mod2 a:nth-of-type(3), 
+.mod3 a:nth-of-type(3), 
+.mod4 a:nth-of-type(3), 
+.mod5 a:nth-of-type(3) { 
+    font-weight: bolder;
+    color: black;
+}
+
+
+.mod1  a:nth-of-type(2):hover, 
+.mod2 a:nth-of-type(2):hover, 
+.mod3 a:nth-of-type(2):hover, 
+.mod4 a:nth-of-type(2):hover, 
+.mod5 a:nth-of-type(2):hover { 
+    font-weight: bolder;
+    text-decoration: none;
+    padding: 3px 5px 3px 5px;
+    color: black;
+    background-color: rgb(164, 202, 253);
+}
+
+.mod1  a:nth-of-type(3):hover, 
+.mod2 a:nth-of-type(3):hover, 
+.mod3 a:nth-of-type(3):hover, 
+.mod4 a:nth-of-type(3):hover, 
+.mod5 a:nth-of-type(3):hover { 
+    font-weight: bolder;
+    text-decoration: dotted;
+    padding: 3px 5px 3px 5px;
+    color: black;
+    background-color: rgb(153, 255, 157);
+}
+
+.deadline > a{
+    font-size: 15px;
+}
+
+.deadline b {
+    font-size: 15px;
+    color: red;
+    background: black;
+    padding: 5px;
+}
+
+.deadline {
+    display: block;
+}
+
+.assignment {
+    font-size: 15px;
+}
+
+<\style>`)

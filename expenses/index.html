@@ -4,18 +4,136 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Expenses</title>
+	<link
+		rel="stylesheet"
+		href="https://unpkg.com/sakura.css/css/sakura.css"
+		media="screen"
+	/>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div id="app">
-	<!-- Replace hw3-starter below with your repo name (hw3-yourusername) so you can save!  -->
-	<ma-data v-model="expenses" src="https://github.com/designftw/hw3-starter/expenses/data.json"></ma-data>
+	<ma-data v-model="expenses" :options="{allowForking: true}" src="https://github.com/designftw/hw3-ayeshaali/expenses/data.json"></ma-data>
 
-	<!-- App UI here -->
+	<h1>Track Your Expenses!</h1>
+	<h2 :class="[balances.total >= 0 ? 'neo' : 'trin']"> {{balances.total >= 0 ? "Neo" : "Trinity"}} owes {{balances.total < 0 ? "Neo" : "Trinity"}} ${{Math.abs(balances.total.toFixed(2))}}</h2>
+	
+	<section id="balanceTable">
+		<table>
+			<thead>
+				<th></th>
+				<th>For Trinity</th>
+				<th>For Neo</th>
+				<th>For Joint</th>
+			</thead>
+			<tr>
+				<th>Trinity paid</th>
+				<td>{{balances.trin.trin}}</td>
+				<td class="trin">{{balances.trin.neo}}</td>
+				<td class="trin">{{balances.trin.joint}}</td>
+			</tr>
+			<tr>
+				<th>Neo paid</th>
+				<td class="neo">{{balances.neo.trin}}</td>
+				<td>{{balances.neo.neo}}</td>
+				<td class="neo">{{balances.neo.joint}}</td>
+			</tr>
+			<tr>
+				<th>Joint paid</th>
+				<td class="neo">{{balances.joint.trin}}</td>
+				<td class="trin">{{balances.joint.neo}}</td>
+				<td>{{balances.joint.joint}}</td>
+			</tr>
+		</table>
+	</section>
 
-	<!-- Delete this line when you write your actual UI -->
-	{{ expenses.length }} expenses loaded.
+	<section id="addForm">
+		<section id="expense-details">
+			<label for="title">Expense Description: <input type="text" name="title" v-model="addItem.title" required></label>
+			<label for="date"> Date: <input type="date" name="date" v-model="addItem.date" required></label>
+		</section>
+
+		<section v-for="(line, i) in addItem.lines" id="line-details">
+			<label>Payer: </label>
+			<select v-model="line.payer">
+				<label><option name="payer" checked value="joint"> Joint</label>
+				<label><option name="payer" value="neo"> Neo</label>
+				<label><option name="payer" value="trin"> Trinity</label>
+			</select>
+
+			<label>Payee: </label>
+			<select v-model="line.payee">
+				<label><option name="payee" checked value="joint"> Joint</label>
+				<label><option name="payee" value="neo"> Neo</label>
+				<label><option name="payee" value="trin"> Trinity</label>
+			</select>
+
+			<label for="amount"> Amount: <input type="number" name="amount" pattern="^\$\d{1,3}(,\d{3})*(\.\d+)?$" v-model="line.amount" required :class="line.payer"></label>
+			
+			<label>Currency: </label>
+			<select v-model="line.currency">
+				<label><option name="currency" selected value="USD"> USD </label>
+				<label><option name="currency" value="EUR"> EUR</label>
+				<label><option name="currency" value="GBP"> GBP</label>
+			</select>
+
+			<button name = "x" @click="deleteLine(i)">X</button>
+		</section>
+		<button id="linebutton" @click="addLine()"> Add Expense Line </button> <br>
+		<button id="addbutton" @click="addExpense()"> Add Expense </button>
+	</section>
+	<button v-if="expenses.user" @click="expenses.save()">Save</button>
+	<button v-else @click="expenses.login()">Login</button>
+	<table id="expenseTable">
+		<thead>
+			<tr>				
+				<th>Expense</th>
+				<th>Date</th>
+				<th>Payer</th>
+				<th>Payee</th>
+				<th>Amount</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr v-for="(exp, i) in sortedExpenses">
+				<td><input type="text" name="exp-title" v-model="exp.title"></td>
+				<td><input type="date" name="exp-title" v-model="exp.date"></td>
+				<td>
+					<div v-for="(line, i) in exp.lines">
+						<select v-model="line.payer">
+							<label><option name="payee" checked value="joint"> Joint</label>
+							<label><option name="payee" value="neo"> Neo</label>
+							<label><option name="payee" value="trin"> Trinity</label>
+						</select>
+					</div>
+				</td>
+				<td>
+					<div v-for="(line, i) in exp.lines">
+						<select v-model="line.payee">
+							<label><option name="payee" checked value="joint"> Joint</label>
+							<label><option name="payee" value="neo"> Neo</label>
+							<label><option name="payee" value="trin"> Trinity</label>
+						</select>
+					</div>
+				</td>
+				<td>
+					<div id="amount-exp" v-for="(line, i) in exp.lines">
+						<input type="text" name="exp-amount" v-model="line.amount" 
+							:class="line.payer + '-' + line.payee">
+						<select v-model="line.currency">
+							<label><option name="currency" value="USD"> USD </label>
+							<label><option name="currency" value="EUR"> EUR</label>
+							<label><option name="currency" value="GBP"> GBP</label>
+						</select>
+					</div>
+				</td>
+				<td><button name = "x" @click="deleteItem(i)">X</button></td>
+			</tr>
+		</tbody>
+	</table>
+
 </div>
 
 <script src="index.js" type="module"></script>

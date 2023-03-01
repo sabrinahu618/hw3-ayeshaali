@@ -5,8 +5,248 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Fix the Web with CSS!</title>
+	<link
+		rel="stylesheet"
+		href="https://unpkg.com/sakura.css/css/sakura.css"
+	/>
+	<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+	<style>
+		pre {
+			border-left: 10px solid;
+			border-left-color: #144f5a;
+		}
+		
+		section h1 {
+			font-size: xx-large;
+		}
+
+		section h2 {
+			font-size: x-large;
+		}
+	</style>
 </head>
 <body>
+	<header>
+		<h1>Fixing the Web with CSS: WebSIS Edition</h1>
+		<nav>
+			<details>
+				<summary><strong>Navigation</strong></summary>
+				<ul>
+					<li><a href="#usability">Usability Improvements</a></li>
+					<ul>
+						<li><a href="#learnability">Learnability</a></li>
+						<li><a href="#efficiency">Efficiency</a></li>
+						<li><a href="#safety">Safety</a></li>
+					</ul>
+					<li><a href= "#graphic_design">Graphic Design Improvements</a></li>
+					<ul>
+						<li><a href="#contrast">Contrast </a></li>
+						<li><a href="#repetition">Repetition</a></li>
+					</ul>
+					<li><a href= "#appendix">Appendix</a></li>
+					<ul>
+						<li><a href="#website">Before and After</a></li>
+						<li><a href="#code">CSS Code</a></li>
+					</ul>
+				</ul>
+			</details>
+		</nav>
+	</header>
+	<main>
+		<br>
+		<p>The website I improved is the <a href="https://61600.csail.mit.edu/2022/">6.1600 course website</a></p>
+		<section>
+			<h1 id="usability">Usability Improvements</h1>
+			<h2 id="learnability">Learnability</h2>
+				<p>I improve learnability of the course website by increasing the spacing within each day's 
+					table cell. Currently, all of the day's information is squished together on one line which
+					makes it hard to read and digest when you first start to use the course website. Now all 
+					of the day's information isn't on one line so it makes it easier to read. 
+				</p>
+			<h2 id="efficiency">Efficiency</h2>
+				<p>I improve efficiency of the course website by providing feedback on hovering over the three
+					most important links on the course schedule: the lecture notes, the video link, and the 
+					chapter link. By changing the color when hovering you can more quickly get to the link
+					that you're looking for just by observing the color rather than reading the link. As you 
+					get comfortable with the course website, looking for the different colored links will be 
+					second nature. 
+				</p>
+			<h2 id="safety">Safety</h2>	
+				<p> I improve the safety of the website by making the due dates of the psets much clearer and 
+					more striking than it originally it is. This way people are less likely to miss their 
+					deadlines. The spacing within a calendar day cell also makes the design safer since people 
+					would be less prone to misclicking the wrong link. 
+				</p>
+		</section>
+		<section>
+			<h1 id="graphic_design">Graphic Design Improvements</h1>
+			<h2 id="contrast">Contrast</h2>
+				<p> I improve the contrast of the design by differentiating the lecture title and number from 
+					the rest of the information in a given course day. This way it is much more clear what 
+					each lecture is about and when it is. </p>
+			<h2 id="repetition">Repetition </h2>
+				<p> I use repetition through the colors I used when you hover over the lecture note links, which 
+					are complementary to the different module colors used by the course website.
+				</p>
+			<h2 id="alignment"> Alignment </h2>
+				<p> I changed the date part of each cell of the course calendar to match what it would like
+					in an actual calendar, in the corner and separated from the rest of the square. This alignment 
+					thus matches a person's mental model of the calendar.  
+				</p>
+		</section>
+		<section>
+			<h1 id="appendix">Appendix</h1>
+			<h2 id="website">Before and After</h2>
+			<video controls>
+				<source src="old.mov">
+			</video>
+			<video controls>
+				<source src="new.mov">
+			</video>
+			<h2 id="code">CSS Code</h2>
+			<pre class="line-numbers">
+				<code class="prettyprint">
+body {
+	font-family: Helvetica Neue, system-ui, sans-serif;
+}
 
+table.calendar tr {
+	vertical-align: center;
+	height: 16em;
+}
+
+
+td.mod1 > .date, 
+td.mod2 > .date, 
+td.mod3 > .date, 
+td.mod4 > .date, 
+td.mod5 > .date {
+	float:left; 
+	display:inline;
+	margin-bottom: 10px;
+}
+
+td .date {
+	font-family: Helvetica;
+	font-weight: 300;
+	background-color: edeceb;
+	padding: 5px;
+	padding-right: 6px;
+	border-bottom-style: solid;
+	border-right-style: solid;
+	display: block;
+	width: 10%;
+	text-align: center;
+	margin-right: 10px;
+}
+
+td > b {
+	font-weight: 400;
+	font-size: 16px;
+}
+
+.mod1 > a:first-of-type, 
+.mod2 > a:first-of-type, 
+.mod3 > a:first-of-type, 
+.mod4 > a:first-of-type, 
+.mod5 > a:first-of-type {
+	font-weight: bolder;
+	display: block;
+	text-decoration: none;
+	padding: 8px;
+	text-align: center;
+	color: black;
+	border-style: solid;
+	border-color: #333333;
+	border-radius: 20px;
+	margin: 30px 10px 10px 10px;
+}
+
+.mod1 > a:first-of-type:hover {
+	background-color: #e29b77;
+}
+
+.mod2 > a:first-of-type:hover { 
+	background-color: #e3ca8f;
+}
+
+.mod3 > a:first-of-type:hover { 
+	background-color: #7ed3a4;
+}
+
+.mod4 > a:first-of-type:hover { 
+	background-color: #80a6df;
+}
+
+.mod5 > a:first-of-type:hover { 
+	background-color: #ae8ee3;
+}
+
+table a:visited {
+	color: blue;
+}
+
+.assignment {
+	color: black;
+}
+
+.mod1  a:nth-of-type(2), 
+.mod2 a:nth-of-type(2), 
+.mod3 a:nth-of-type(2), 
+.mod4 a:nth-of-type(2), 
+.mod5 a:nth-of-type(2) { 
+	font-weight: bolder;
+	color: black;
+}
+
+.mod1  a:nth-of-type(3), 
+.mod2 a:nth-of-type(3), 
+.mod3 a:nth-of-type(3), 
+.mod4 a:nth-of-type(3), 
+.mod5 a:nth-of-type(3) { 
+	font-weight: bolder;
+	color: black;
+}
+
+
+.mod1  a:nth-of-type(2):hover, 
+.mod2 a:nth-of-type(2):hover, 
+.mod3 a:nth-of-type(2):hover, 
+.mod4 a:nth-of-type(2):hover, 
+.mod5 a:nth-of-type(2):hover { 
+	font-weight: bolder;
+	text-decoration: none;
+	padding: 3px 5px 3px 5px;
+	color: black;
+	background-color: rgb(164, 202, 253);
+}
+
+.mod1  a:nth-of-type(3):hover, 
+.mod2 a:nth-of-type(3):hover, 
+.mod3 a:nth-of-type(3):hover, 
+.mod4 a:nth-of-type(3):hover, 
+.mod5 a:nth-of-type(3):hover { 
+	font-weight: bolder;
+	text-decoration: dotted;
+	padding: 3px 5px 3px 5px;
+	color: black;
+	background-color: rgb(153, 255, 157);
+}
+
+.deadline > a{
+    font-size: 18px;
+}
+
+.deadline b {
+    font-size: 18px;
+    color: red;
+    background: black;
+    padding: 5px;
+}
+				</code>
+			</pre>
+		</section>
+		
+	</main>
 </body>
 </html>

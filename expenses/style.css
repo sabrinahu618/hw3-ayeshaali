@@ -1,0 +1,120 @@
+
+input {
+	box-sizing: border-box;
+}
+
+button {
+	border-radius: 8px;
+}
+
+select, input {
+    margin-bottom: 8px;
+}
+
+#balanceTable {
+    display: inline;
+    float: left;
+    width: 35%;
+    border-style: solid;
+    padding: 15px;
+    border-radius: 20px;
+    border-color: hsl(220 10% 80%);
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+
+#balanceTable table {
+    table-layout: fixed;
+    text-align: center;
+	border-spacing: 0.3em;
+	border-collapse: separate;
+}
+
+#addForm {
+    display: inline;
+    float: left;
+    width: 50%;
+    text-align: left;
+    border-style: solid;
+    padding: 15px;
+    border-radius: 20px;
+    border-color: hsl(220 10% 80%);
+}
+
+#linebutton, #addbutton {
+    margin: 10px 5px 0px 0px;
+}
+
+input:focus {
+    outline: solid;
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: #982c61;
+}
+
+#line-details > * {
+    display: inline-block;
+    margin-right: 7px;
+}
+
+#expense-details > label {
+    width: 23em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#expense-details > label > input{
+    width: 17em;
+}
+
+body {
+	max-width: 100%;
+}
+
+#expenseTable {
+    display: inline;
+	width: 70%;
+	table-layout: auto;
+	border-spacing: 0;
+	border-collapse: collapse;
+	text-align: center;
+    vertical-align: middle;
+}
+
+td, th {
+	border: 1px solid hsl(220 10% 80%);
+	padding: .4em .5em;
+}
+
+#app > button {
+    clear: both;
+    display: block;
+	margin: 8px;
+    border-radius: 0px;
+    font-size: 18px;
+}
+
+#expenseTable tr > td:first-of-type > input {
+    width: 20em;
+}
+
+#expenseTable input, select {
+    margin: 0px;
+}
+
+#amount-exp {
+    display: inline-block;
+}
+
+#amount-exp > input {
+    margin-right: 10px;
+}
+
+.trin, .trin-joint, .joint-neo, .trin-neo{
+    color: #f9bd4e;
+}
+
+.neo, .neo-joint, .neo-trin, .joint-trin  {
+    color: #7373F9;
+}
