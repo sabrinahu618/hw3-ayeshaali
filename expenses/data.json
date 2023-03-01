@@ -1,12 +1,12 @@
 [
 	{
-		"title": "Rent, Oct 2023",
-		"date": "2022-10-29",
+		"title": "Joint credit card Sep 2023",
+		"date": "2023-12-29",
 		"lines": [
 			{
-				"payer": "neo",
-				"payee": "trin",
-				"amount": 1000,
+				"payer": "trin",
+				"payee": "joint",
+				"amount": 2283,
 				"currency": "USD"
 			}
 		]
@@ -24,13 +24,13 @@
 		]
 	},
 	{
-		"title": "Joint credit card Sep 2023",
-		"date": "2023-12-29",
+		"title": "Rent, Oct 2023",
+		"date": "2022-10-29",
 		"lines": [
 			{
-				"payer": "trin",
-				"payee": "joint",
-				"amount": 2283,
+				"payer": "neo",
+				"payee": "trin",
+				"amount": 1000,
 				"currency": "USD"
 			}
 		]
