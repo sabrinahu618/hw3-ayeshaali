@@ -12,18 +12,6 @@
 		]
 	},
 	{
-		"title": "Rent, Nov 2023",
-		"date": "2023-11-29",
-		"lines": [
-			{
-				"payer": "joint",
-				"payee": "trin",
-				"amount": 1000,
-				"currency": "USD"
-			}
-		]
-	},
-	{
 		"title": "Rent February 2023",
 		"date": "2023-02-14",
 		"lines": [
