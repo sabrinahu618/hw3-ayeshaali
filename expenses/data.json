@@ -65,41 +65,5 @@
 				"currency": "USD"
 			}
 		]
-	},
-	{
-		"title": "",
-		"date": "",
-		"lines": [
-			{
-				"amount": "",
-				"payee": "",
-				"payer": "",
-				"currency": "USD"
-			}
-		]
-	},
-	{
-		"title": "",
-		"date": "",
-		"lines": [
-			{
-				"amount": "",
-				"payee": "",
-				"payer": "",
-				"currence": "USD"
-			}
-		]
-	},
-	{
-		"title": "test",
-		"date": "",
-		"lines": [
-			{
-				"amount": "",
-				"payee": "",
-				"payer": "",
-				"currence": "USD"
-			}
-		]
 	}
 ]
