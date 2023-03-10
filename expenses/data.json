@@ -1,12 +1,25 @@
 [
 	{
-		"title": "Joint credit card Sep 2023",
-		"date": "2023-12-29",
+		"title": "test",
+		"date": "2023-03-09",
 		"lines": [
 			{
-				"payer": "trin",
-				"payee": "joint",
-				"amount": 2283,
+				"amount": 10,
+				"payee": "trin",
+				"payer": "neo",
+				"currency": "USD"
+			}
+		]
+	},
+	{
+		"title": "test1",
+		"date": "2023-03-03",
+		"lines": [
+			{
+				"amount": 10,
+				"payee": "neo",
+				"payer": "neo",
+				"currence": "USD",
 				"currency": "USD"
 			}
 		]
