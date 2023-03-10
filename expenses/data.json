@@ -25,6 +25,24 @@
 		]
 	},
 	{
+		"title": "test",
+		"date": "2023-03-03",
+		"lines": [
+			{
+				"amount": 100,
+				"payee": "neo",
+				"payer": "neo",
+				"currency": "USD"
+			},
+			{
+				"amount": 10,
+				"payee": "trin",
+				"payer": "trin",
+				"currency": "EUR"
+			}
+		]
+	},
+	{
 		"title": "Rent February 2023",
 		"date": "2023-02-14",
 		"lines": [
