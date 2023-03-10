@@ -47,7 +47,7 @@
 		"date": "2023-02-14",
 		"lines": [
 			{
-				"amount": 2000,
+				"amount": "20000",
 				"payee": "joint",
 				"payer": "neo",
 				"currency": "USD"
