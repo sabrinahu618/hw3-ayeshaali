@@ -1,17 +1,5 @@
 [
 	{
-		"title": "test",
-		"date": "2023-03-09",
-		"lines": [
-			{
-				"amount": 10,
-				"payee": "trin",
-				"payer": "trin",
-				"currency": "USD"
-			}
-		]
-	},
-	{
 		"title": "test1",
 		"date": "2023-03-03",
 		"lines": [
